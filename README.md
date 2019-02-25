@@ -12,6 +12,7 @@ var ImageObject = await MeeNET.GetImgUrl(MeekNET.loids.ProjectDiva);
 //The object holds the URL, Proxy URL and depending if the its Set in the API DB, a creator message 
 ```
 
+With image stream
 ```cs
 var ImageObject = await MeeNET.GetImg(MeekNET.loids.ProjectDiva);
 //This also contains a stream if the proxy resized image and the filetype 
