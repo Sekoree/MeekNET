@@ -1,6 +1,6 @@
 # MeekNET
 Small .Net wrapper for the meek.moe Vocaloid image API
-Built on .NetCore 2.1
+Built on .Net>Standart 2.0
 
 This is made with Discord Bots in mind, so objects include a proxy URL that resizes the image to a hegt of 500px
 
