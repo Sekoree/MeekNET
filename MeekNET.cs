@@ -14,7 +14,8 @@ namespace MeekNET
             WebClient wc = new WebClient();
             string ApiJson = await wc.DownloadStringTaskAsync($"https://api.meek.moe/{GetLoid(loid)}");
             ApiResponse ar = JsonConvert.DeserializeObject<ApiResponse>(ApiJson);
-            Stream im = new MemoryStream(await wc.DownloadDataTaskAsync($"https://api.meek.moe/im/?image={ar.Url}&resize=500"));
+            MemoryStream im = new MemoryStream(await wc.DownloadDataTaskAsync($"https://api.meek.moe/im/?image={ar.Url}&resize=500"));
+            im.Position = 0;
             ImgData iu = new ImgData
             {
                 Url = ar.Url,

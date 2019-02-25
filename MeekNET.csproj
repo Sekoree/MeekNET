@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>0.2.0</Version>
+    <Version>0.2.1</Version>
     <Authors>Speyd3r</Authors>
     <PackageProjectUrl>https://raw.githubusercontent.com/Speyd3r/MeekNET/</PackageProjectUrl>
     <RepositoryUrl>https://raw.githubusercontent.com/Speyd3r/MeekNET/</RepositoryUrl>
