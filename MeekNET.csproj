@@ -1,18 +1,19 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <OutputType>Library</OutputType>
-    <TargetFramework>netcoreapp2.1</TargetFramework>
-    <ApplicationIcon />
-    <StartupObject />
+    <TargetFramework>netstandard2.0</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>0.1.1</Version>
+    <Version>0.2.0</Version>
     <Authors>Speyd3r</Authors>
-    <Description>.Net wrapper for meek.moe image API</Description>
-    <Copyright></Copyright>
-    <PackageProjectUrl>https://github.com/Speyd3r/MeekNET</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/Speyd3r/MeekNET</RepositoryUrl>
-    <PackageLicenseUrl>https://github.com/Speyd3r/MeekNET/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://raw.githubusercontent.com/Speyd3r/MeekNET/</PackageProjectUrl>
+    <RepositoryUrl>https://raw.githubusercontent.com/Speyd3r/MeekNET/</RepositoryUrl>
+    <PackageLicenseUrl>https://raw.githubusercontent.com/Speyd3r/MeekNET/master/LICENSE</PackageLicenseUrl>
+    <Description>.Net Wrapper for mee.moe voclaloid image API</Description>
+    <PackageTags>image api; vocaloid; discord</PackageTags>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <Optimize>true</Optimize>
   </PropertyGroup>
 
   <ItemGroup>
