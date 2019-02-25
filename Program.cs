@@ -7,7 +7,7 @@ using HeyRed.Mime;
 
 namespace MeekNET
 {
-    class Program
+    public class MeekNet
     {
         public static async Task<ImgData> GetImg(Loids loid)
         {
