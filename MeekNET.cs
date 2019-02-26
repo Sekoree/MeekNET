@@ -5,20 +5,32 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using HeyRed.Mime;
 using MeekNET.Enums;
+using MeekNET.Entities;
 
 namespace MeekNET
 {
     public class MeekMoe
     {
-        public async Task<ImgData> GetImg(Loids loid)
+        public async Task<ImgData> GetImg(Loids loid, int size = 0)
         {
             WebClient wc = new WebClient();
             string ApiJson = await wc.DownloadStringTaskAsync($"https://api.meek.moe/{GetLoid(loid)}");
-            ApiResponse ar = JsonConvert.DeserializeObject<ApiResponse>(ApiJson);
-            MemoryStream im = new MemoryStream(await wc.DownloadDataTaskAsync($"https://api.meek.moe/im/?image={ar.Url}&resize=500"))
+            ApiResponse ar = JsonConvert.DeserializeObject<ApiResponse>(ApiJson); ;
+            MemoryStream im;
+            if (size < 0)
             {
-                Position = 0
-            };
+                im = new MemoryStream(await wc.DownloadDataTaskAsync(ar.Url))
+                {
+                    Position = 0
+                };
+            }
+            else
+            {
+                im = new MemoryStream(await wc.DownloadDataTaskAsync($"https://api.meek.moe/im/?image={ar.Url}&resize={size}"))
+                {
+                    Position = 0
+                };
+            }
             ImgData iu = new ImgData
             {
                 Url = ar.Url,
@@ -30,7 +42,7 @@ namespace MeekNET
             return iu;
         }
 
-        public async Task<ImgUrl> GetImgURL(Enums.Loids loid)
+        public async Task<ImgUrl> GetImgURL(Loids loid)
         {
             WebClient wc = new WebClient();
             string ApiJson = await wc.DownloadStringTaskAsync($"https://api.meek.moe/{GetLoid(loid)}");
@@ -44,7 +56,7 @@ namespace MeekNET
             return iu;
         }
 
-        private string GetLoid(Enums.Loids a)
+        private string GetLoid(Loids a)
         {
             switch (a)
             {
@@ -92,19 +104,6 @@ namespace MeekNET
             public string Url { get; set; }
             public string Creator { get; set; }
         }
-
-        public class ImgUrl
-        {
-            public string Url { get; set; }
-            public string ProxyUrl { get; set; }
-            public string Creator { get; set; }
-            public string FileType { get; set; }
-        }
-
-        public class ImgData : ImgUrl
-        {
-            public Stream Image { get; set; }
-        }
     }
 }
 
@@ -130,4 +129,20 @@ namespace MeekNET.Enums
             Mayu,
             AokiLapis
         }
+}
+
+namespace MeekNET.Entities
+{
+    public class ImgUrl
+    {
+        public string Url { get; set; }
+        public string ProxyUrl { get; set; }
+        public string Creator { get; set; }
+        public string FileType { get; set; }
+    }
+
+    public class ImgData : ImgUrl
+    {
+        public Stream Image { get; set; }
+    }
 }
