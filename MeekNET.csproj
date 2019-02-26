@@ -1,19 +1,23 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFrameworks>netstandard2.0;net45;netcoreapp2.0</TargetFrameworks>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>0.2.1</Version>
+    <Version>0.2.4</Version>
     <Authors>Speyd3r</Authors>
     <PackageProjectUrl>https://raw.githubusercontent.com/Speyd3r/MeekNET/</PackageProjectUrl>
     <RepositoryUrl>https://raw.githubusercontent.com/Speyd3r/MeekNET/</RepositoryUrl>
     <PackageLicenseUrl>https://raw.githubusercontent.com/Speyd3r/MeekNET/master/LICENSE</PackageLicenseUrl>
-    <Description>.Net Wrapper for mee.moe voclaloid image API</Description>
+    <Description>.Net Wrapper for meek.moe voclaloid image API</Description>
     <PackageTags>image api; vocaloid; discord</PackageTags>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <Optimize>true</Optimize>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|netstandard2.0|AnyCPU'">
+    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
 
   <ItemGroup>
