@@ -4,12 +4,13 @@ using System.Net;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using HeyRed.Mime;
+using MeekNET.Enums;
 
 namespace MeekNET
 {
-    public class MeekNet
+    public class MeekMoe
     {
-        public static async Task<ImgData> GetImg(Loids loid)
+        public async Task<ImgData> GetImg(Loids loid)
         {
             WebClient wc = new WebClient();
             string ApiJson = await wc.DownloadStringTaskAsync($"https://api.meek.moe/{GetLoid(loid)}");
@@ -29,7 +30,7 @@ namespace MeekNET
             return iu;
         }
 
-        public static async Task<ImgUrl> GetImgURL(Loids loid)
+        public async Task<ImgUrl> GetImgURL(Enums.Loids loid)
         {
             WebClient wc = new WebClient();
             string ApiJson = await wc.DownloadStringTaskAsync($"https://api.meek.moe/{GetLoid(loid)}");
@@ -43,50 +44,73 @@ namespace MeekNET
             return iu;
         }
 
-        private static string GetLoid(Loids a)
+        private string GetLoid(Enums.Loids a)
         {
             switch (a)
             {
-                case Loids.ProjectDiva:
+                case Enums.Loids.ProjectDiva:
                     return "diva";
-                case Loids.KagamineRin:
+                case Enums.Loids.KagamineRin:
                     return "rin";
-                case Loids.OtomachiUna:
+                case Enums.Loids.OtomachiUna:
                     return "una";
-                case Loids.Gumi:
+                case Enums.Loids.Gumi:
                     return "gumi";
-                case Loids.MegurineLuka:
+                case Enums.Loids.MegurineLuka:
                     return "luka";
-                case Loids.IA:
+                case Enums.Loids.IA:
                     return "ia";
-                case Loids.Fukase:
+                case Enums.Loids.Fukase:
                     return "fukase";
-                case Loids.HatsuneMiku:
+                case Enums.Loids.HatsuneMiku:
                     return "miku";
-                case Loids.KagamineLen:
+                case Enums.Loids.KagamineLen:
                     return "len";
-                case Loids.Kaito:
+                case Enums.Loids.Kaito:
                     return "kaito";
-                case Loids.KasaneTeto:
+                case Enums.Loids.KasaneTeto:
                     return "teto";
-                case Loids.Meiko:
+                case Enums.Loids.Meiko:
                     return "meiko";
-                case Loids.YuzukiYukari:
+                case Enums.Loids.YuzukiYukari:
                     return "yukari";
-                case Loids.SFA2Miki:
+                case Enums.Loids.SFA2Miki:
                     return "miki";
-                case Loids.Lily:
+                case Enums.Loids.Lily:
                     return "lily";
-                case Loids.Mayu:
+                case Enums.Loids.Mayu:
                     return "mayu";
-                case Loids.AokiLapis:
+                case Enums.Loids.AokiLapis:
                     return "aoki";
 
             }
             return null;
         }
 
-        public enum Loids
+        private class ApiResponse
+        {
+            public string Url { get; set; }
+            public string Creator { get; set; }
+        }
+
+        public class ImgUrl
+        {
+            public string Url { get; set; }
+            public string ProxyUrl { get; set; }
+            public string Creator { get; set; }
+            public string FileType { get; set; }
+        }
+
+        public class ImgData : ImgUrl
+        {
+            public Stream Image { get; set; }
+        }
+    }
+}
+
+namespace MeekNET.Enums
+{
+      public enum Loids
         {
             ProjectDiva,
             KagamineRin,
@@ -106,24 +130,4 @@ namespace MeekNET
             Mayu,
             AokiLapis
         }
-
-        public class ApiResponse
-        {
-            public string Url { get; set; }
-            public string Creator { get; set; }
-        }
-
-        public class ImgUrl
-        {
-            public string Url { get; set; }
-            public string ProxyUrl { get; set; }
-            public string Creator { get; set; }
-            public string FileType { get; set; }
-        }
-
-        public class ImgData : ImgUrl
-        {
-            public Stream Image { get; set; }
-        }
-    }
 }
