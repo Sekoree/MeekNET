@@ -8,12 +8,22 @@ This is made with Discord Bots in mind, so objects include a proxy URL that resi
 
 Just the URL
 ```cs
-var ImageObject = await MeeNET.GetImgUrl(MeekNET.loids.ProjectDiva);
-//The object holds the URL, Proxy URL and depending if the its Set in the API DB, a creator message 
+using MeekNET;
+using MeeKNET.Enums;
+using MeekNet.Entities;
+//...//
+MeekMoe mm = new MeekMoe();
+ImgUrl iu = await m.GetImgUrl(Loids.ProjectDiva);
+//The object holds the URL, Proxy URL and depending if it's set in the API DB, a creator message 
 ```
 
 With image stream
 ```cs
-var ImageObject = await MeeNET.GetImg(MeekNET.loids.ProjectDiva);
-//This also contains a stream if the proxy resized image and the filetype 
+using MeekNET;
+using MeeKNET.Enums;
+using MeekNet.Entities;
+//...//
+MeekMoe mm = new MeekMoe();
+ImgUrl id = await m.GetImg(Loids.ProjectDiva, 500);
+//This also contains a stream of the (if a value is set) proxy resized image and the filetype (for example "jpeg" or "png")
 ```
