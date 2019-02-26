@@ -23,6 +23,6 @@ using MeeKNET.Enums;
 using MeekNet.Entities;
 //...//
 MeekMoe mm = new MeekMoe();
-ImgUrl id = await m.GetImg(Loids.ProjectDiva, 500);
+ImgData id = await m.GetImg(Loids.ProjectDiva, 500);
 //This also contains a stream of the (if a value is set) proxy resized image and the filetype (for example "jpeg" or "png")
 ```
