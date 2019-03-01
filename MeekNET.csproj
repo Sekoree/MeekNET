@@ -3,13 +3,13 @@
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0;net45;netcoreapp2.0</TargetFrameworks>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>0.2.10</Version>
+    <Version>0.2.11</Version>
     <Authors>Speyd3r</Authors>
-    <PackageProjectUrl>https://raw.githubusercontent.com/Speyd3r/MeekNET/</PackageProjectUrl>
-    <RepositoryUrl>https://raw.githubusercontent.com/Speyd3r/MeekNET/</RepositoryUrl>
-    <PackageLicenseUrl>https://raw.githubusercontent.com/Speyd3r/MeekNET/master/LICENSE</PackageLicenseUrl>
-    <Description>.Net Wrapper for meek.moe voclaloid image API</Description>
-    <PackageTags>image api; vocaloid; discord</PackageTags>
+    <PackageProjectUrl>https://github.com/Speyd3r/MeekNET</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Speyd3r/MeekNET</RepositoryUrl>
+    <PackageLicenseUrl>https://github.com/Speyd3r/MeekNET/blob/master/LICENSE</PackageLicenseUrl>
+    <Description>.NET Wrapper for meek.moe Vocaloid image API</Description>
+    <PackageTags>Images, Vocaloid; Discord</PackageTags>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
