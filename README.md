@@ -12,8 +12,9 @@ using MeeKNET.Enums;
 using MeekNet.Entities;
 //...//
 MeekMoe mm = new MeekMoe();
-ImgUrl iu = await m.GetImgUrl(Loids.ProjectDiva);
-//The object holds the URL, Proxy URL and depending if it's set in the API DB, a creator message 
+ImgUrl iu = await m.GetImgUrl(Loids.ProjectDiva, 250);
+//The object holds the URL, proxy URL and depending if it's set in the API DB, a creator message 
+//The specified integer will be set height of the proxy URL
 ```
 
 With image stream
