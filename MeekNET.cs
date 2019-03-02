@@ -1,12 +1,12 @@
 ﻿using HeyRed.Mime;
-using MeekNET.Entities;
-using MeekNET.Enums;
+using MeekNet.Entities;
+using MeekNet.Enums;
 using Newtonsoft.Json;
 using System.IO;
 using System.Net;
 using System.Threading.Tasks;
 
-namespace MeekNET
+namespace MeekNet
 {
     public class MeekMoe
     {
@@ -121,7 +121,7 @@ namespace MeekNET
     }
 }
 
-namespace MeekNET.Entities
+namespace MeekNet.Entities
 {
     public class ImgData : ImgUrl
     {
@@ -137,7 +137,7 @@ namespace MeekNET.Entities
     }
 }
 
-namespace MeekNET.Enums
+namespace MeekNet.Enums
 {
     public enum Loids
     {
