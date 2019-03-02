@@ -7,8 +7,8 @@ This is made with Discord Bots in mind, so objects include a proxy URL that resi
 
 Just the URL
 ```cs
-using MeekNET;
-using MeeKNET.Enums;
+using MeekNet;
+using MeeKNet.Enums;
 using MeekNet.Entities;
 //...//
 MeekMoe mm = new MeekMoe();
@@ -19,8 +19,8 @@ ImgUrl iu = await mm.GetImgUrl(Loids.ProjectDiva, 250);
 
 With image stream
 ```cs
-using MeekNET;
-using MeeKNET.Enums;
+using MeekNet;
+using MeeKNet.Enums;
 using MeekNet.Entities;
 //...//
 MeekMoe mm = new MeekMoe();
